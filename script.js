@@ -42,33 +42,33 @@ function random(num) {
 }
 
 diffBtn.forEach(item => {
-  item.addEventListener('click', () => {
+item.addEventListener('click', () => {
     if (item.classList.contains('easy')) {
-      settings.speed = 3;
-      settings.traffic = 3.5;
-      diffSelected.textContent = 'Выбрана сложность: легкая';
-      diffBtn.forEach(item => {
+    settings.speed = 3;
+    settings.traffic = 3.5;
+    diffSelected.textContent = 'Dificultad seleccionada: fácil';
+    diffBtn.forEach(item => {
         item.classList.remove('active');
-      });
-      item.classList.add('active');
+    });
+    item.classList.add('active');
     } else if (item.classList.contains('medium')) {
-      settings.speed = 5;
-      settings.traffic = 3;
-      diffSelected.textContent = 'Выбрана сложность: средняя';
-      diffBtn.forEach(item => {
+    settings.speed = 5;
+    settings.traffic = 3;
+    diffSelected.textContent = 'Dificultad seleccionada: media';
+    diffBtn.forEach(item => {
         item.classList.remove('active');
-      });
-      item.classList.add('active');
+    });
+    item.classList.add('active');
     } else if (item.classList.contains('hard')) {
-      settings.speed = 7;
-      settings.traffic = 2.5;
-      diffSelected.textContent = 'Выбрана сложность: сложная';
-      diffBtn.forEach(item => {
+    settings.speed = 7;
+    settings.traffic = 2.5;
+    diffSelected.textContent = 'Dificultad seleccionada: difícil';
+    diffBtn.forEach(item => {
         item.classList.remove('active');
-      });
-      item.classList.add('active');
+    });
+    item.classList.add('active');
     }
-  });
+});
 });
 
 startBtn.addEventListener('click', () => {
