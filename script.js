@@ -109,9 +109,85 @@ startBtn.addEventListener('click', () => {
 });
 
 function startGame(event) {
-    event.preventDefault();
-    keys[event.key] = true;
-  }
+event.preventDefault();
+keys[event.key] = true;
+}
 
-  
+function playGame() {
+if (settings.start) {
+    settings.score += settings.speed;
+    score.innerHTML = 'Score <br>' + settings.score;
+    moveRoad();
+    moveEnemy();
+    if (keys.ArrowLeft && settings.x > 0) {
+    settings.x -= settings.speed;
+    }
+    if (keys.ArrowRight && settings.x < gameArea.offsetWidth - car.offsetWidth) {
+    settings.x += settings.speed;
+    }
+    if (keys.ArrowUp && settings.y > 0) {
+    settings.y -= settings.speed;
+    }
+    if (keys.ArrowDown && settings.y < gameArea.offsetHeight - car.offsetHeight) {
+    settings.y += settings.speed;
+    }
+    car.style.top = settings.y + 'px';
+    car.style.left = settings.x + 'px';
+    requestAnimationFrame(playGame);
+}
+}
+
+function stopGame(event) {
+event.preventDefault();
+keys[event.key] = false;
+}
+
+function moveRoad() {
+let lines = document.querySelectorAll('.line');
+lines.forEach(function (line) {
+    line.y += settings.speed;
+    line.style.top = line.y + 'px';
+    if (line.y >= document.documentElement.clientHeight) {
+    line.y = -80;
+    }
+});
+}
+
+function moveEnemy() {
+let enemies = document.querySelectorAll('.enemy');
+enemies.forEach(function (item) {
+    let carRect = car.getBoundingClientRect();
+    let enemyRect = item.getBoundingClientRect();
+    if (
+    carRect.top <= enemyRect.bottom &&
+    carRect.right >= enemyRect.left &&
+    carRect.left <= enemyRect.right &&
+    carRect.bottom >= enemyRect.top
+    ) {
+    settings.start = false;
+
+    audio.pause();
+    audio.currentTime = 0;
+    audio.autoplay = false;
+    startMenu.classList.remove('hide');
+    settings.speed = 5;
+    settings.traffic = 3;
+    diffSelected.textContent = '';
+    diffBtn.forEach(item => {
+        item.classList.remove('active');
+    });
+    }
+    item.y += settings.speed / 2;
+    item.style.top = item.y + 'px';
+    if (item.y >= document.documentElement.clientHeight) {
+    item.y = -80 * settings.traffic;
+    item.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
+    item.style.background =
+        'rgba(0, 0, 0, 0) url(./image/' +
+        enemyStyles[random(enemyStyles.length)] +
+        '.png) center / cover no-repeat';
+    }
+});
+}
+
 
