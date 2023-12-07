@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Racing Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Racing game</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="screen">
-        <div class="start_menu slideDown">
-          <div class="start_menu-container">
-            <div class="difficulty">
-              <p class="difficulty__title">Elija el nivel de dificultad</p>
-              <p class="difficulty__subtitle">(Por defecto: Medio)</p>
-              <button class="difficulty__button easy">Facil</button>
-              <button class="difficulty__button medium">Medio</button>
-              <button class="difficulty__button hard">Dificil</button>
-              <p class="difficulty-selected"></p>
-            </div>
-            <button class="game__start">Comenzar</button>
+      <div class="start__menu slideDown">
+        <div class="start__menu-container">
+          <div class="difficulty">
+            <p class="difficulty__title">Elija el nivel de dificultad</p>
+            <p class="difficulty__subtitle">(por defecto: Medio)</p>
+            <button class="difficulty__button easy">Facil</button>
+            <button class="difficulty__button medium">Medio</button>
+            <button class="difficulty__button hard">Dificil</button>
+            <p class="difficulty-selected"></p>
           </div>
-        </div>
-      </div>
 
-      <div class="screen">
-        <div class="score_container hide">
-          <div class="score_inner">
-            <div class="score"></div>
-          </div>
+          <button class="game__start">Comenzar</button>
         </div>
-        <div class="game">
-          <div class="gamearea"></div>
+        <!-- /.start__menu-container -->
+      </div>
+    </div>
+    <div class="screen">
+      <div class="score_container hide">
+        <div class="score_inner">
+          <div class="score"></div>
         </div>
       </div>
+      <div class="game">
+        <div class="gamearea"></div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
