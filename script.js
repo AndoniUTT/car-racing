@@ -108,3 +108,10 @@ startBtn.addEventListener('click', () => {
   requestAnimationFrame(playGame);
 });
 
+function startGame(event) {
+    event.preventDefault();
+    keys[event.key] = true;
+  }
+
+  
+
